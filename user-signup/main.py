@@ -11,10 +11,14 @@ app.config['DEBUG'] = True
 def index():
     return render_template('user_signup.html')
 
+#@app.route("/", methods=['POST'])
+#def validate_username():
+
+
 @app.route("/welcome", methods=['POST'])
 def welcome():
     username = request.form['username']
-    return render_template('welcome.html')
+    return render_template('welcome.html', username=username)
 
 
 
