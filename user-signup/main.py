@@ -11,9 +11,18 @@ app.config['DEBUG'] = True
 def index():
     return render_template('user_signup.html')
 
-#@app.route("/", methods=['POST'])
-#def validate_username():
+@app.route("/", methods=['POST'])
+def validate_username():
+    username = request.form['username']
 
+    user_error = ''
+
+    if len('username') < 3 or len('username') > 20:
+        user_error = ''
+    else:
+        user_error = '''That's not a valid username'''
+        return render_template('user_signup.html', user_error = user_error)
+    
 
 @app.route("/welcome", methods=['POST'])
 def welcome():
