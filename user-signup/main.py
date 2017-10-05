@@ -81,20 +81,12 @@ def validate_email():
 def error_check():
      
     if not user_error and not pass_error and not verify_error and not email_error:
-        return redirect('/welcome')
+        username = request.form['username']
+        return render_template('welcome.html', username=username)
     else:
         return render_template('user_signup.html', user_error=user_error, pass_error=pass_error, verify_error=verify_error, email_error=email_error)
         
     
-
-@app.route("/welcome", methods=['GET','POST'])
-def welcome():
-    username = request.form['username']
-    return render_template('welcome.html', username=username)
-
-
-
-
 
 
 
