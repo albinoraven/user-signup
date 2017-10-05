@@ -19,9 +19,25 @@ def validate_username():
 
     if len('username') < 3 or len('username') > 20:
         user_error = "That's not a valid username"
-        return render_template('user_signup.html', user_error = user_error)
+        
     else:
         user_error = ''
+
+def validate_password():
+    password = request.form['password']
+
+    pass_error = ''
+
+    if len('password') < 3 or len('password') > 20:
+        pass_error = "That's not a valid password"
+        
+    else:
+        pass_error = ''
+
+def validate_email():
+    email = request.form['email']
+
+    email_error = ''
         
         
     
