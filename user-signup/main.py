@@ -18,10 +18,11 @@ def validate_username():
     user_error = ''
 
     if len('username') < 3 or len('username') > 20:
-        user_error = ''
-    else:
         user_error = '''That's not a valid username'''
         return render_template('user_signup.html', user_error = user_error)
+    else:
+        user_error = ''
+        
     
 
 @app.route("/welcome", methods=['POST'])
