@@ -23,6 +23,11 @@ def validate_username():
     else:
         user_error = ''
 
+    if ' ' in username:
+        user_error = "That's not a valid username"
+    else:
+        user_error = ''
+
 def validate_password():
     password = request.form['password']
 
@@ -34,11 +39,51 @@ def validate_password():
     else:
         pass_error = ''
 
+    if ' ' in password:
+        pass_error = "That's not a valid password"
+    else:
+        pass_error = ''
+
+def verify_password():
+    password = request.form['password']
+    verify = request.form['verify']
+
+    verify_error = ''
+
+    if password == verify:
+        verify_error = "Passwords don't match"
+    else:
+        verify_error = ''
+
+
 def validate_email():
     email = request.form['email']
 
     email_error = ''
+
+    if '@' in email and '.' in email:
+        email_error = ''
+    else: 
+        email_error = "That's not a valid email"
         
+    if len('email') < 3 or len('email') > 20:
+        email_error = "That's not a valid email"
+        
+    else:
+        email_error = ''
+
+    if ' ' in email:
+        email_error = "That's not a valid email"
+    else:
+        email_error = ''
+
+
+def error_check():
+     
+    if not user_error and not pass_error and not verify_error and not email_error:
+        return redirect('/welcome')
+    else:
+        return render_template('user_signup.html', user_error=user_error, pass_error=pass_error, verify_error=verify_error, email_error=email_error)
         
     
 
