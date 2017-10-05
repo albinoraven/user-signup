@@ -51,9 +51,9 @@ def verify_password():
     verify_error = ''
 
     if password == verify:
-        verify_error = "Passwords don't match"
-    else:
         verify_error = ''
+    else:
+        verify_error = "Passwords don't match"
 
 
 def validate_email():
