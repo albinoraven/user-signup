@@ -87,7 +87,7 @@ def error_check():
         
     
 
-@app.route("/welcome", methods=['POST'])
+@app.route("/welcome", methods=['GET','POST'])
 def welcome():
     username = request.form['username']
     return render_template('welcome.html', username=username)
