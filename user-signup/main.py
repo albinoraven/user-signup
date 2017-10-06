@@ -17,7 +17,7 @@ def validate_username():
 
     user_error = ''
 
-    if len('username') < 3 or len('username') > 20:
+    if len(username) < 3 or len(username) > 20:
         user_error = "That's not a valid username"
         
     else:
@@ -33,7 +33,7 @@ def validate_password():
 
     pass_error = ''
 
-    if len('password') < 3 or len('password') > 20:
+    if len(password) < 3 or len(password) > 20:
         pass_error = "That's not a valid password"
         
     else:
@@ -66,7 +66,7 @@ def validate_email():
     else: 
         email_error = "That's not a valid email"
         
-    if len('email') < 3 or len('email') > 20:
+    if len(email) < 3 or len(email) > 20:
         email_error = "That's not a valid email"
         
     else:
